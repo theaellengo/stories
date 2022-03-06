@@ -11,4 +11,8 @@ class UserModel(db.Model):
     self.id = _id
     self.username = username
     self.password = password
-  
+
+  @classmethod
+  def save_to_db(self):
+    db.session.add(self)
+    db.session.commit()
