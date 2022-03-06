@@ -16,3 +16,13 @@ class UserModel(db.Model):
   def save_to_db(self):
     db.session.add(self)
     db.session.commit()
+
+  @classmethod
+  def find_by_username(self, username):
+    user = UserModel.query.filter_by(username=username).first()
+    return user if user else None
+
+  @classmethod
+  def find_by_id(self, _id):
+    user = UserModel.query.filter_by(id=_id).first()
+    return user if user else None

@@ -10,9 +10,10 @@ class UserRegister(Resource):
   def post(self):
     data = UserRegister.parser.parse_args()
 
+    # check if user already exists
+
+    # create a new user
     user = UserModel(None, data['username'], data['password'])
     user.save_to_db()
 
-    return {
-      'message': 'User successfully created'
-    }, 200
+    return {'message': 'User successfully created'}, 200
