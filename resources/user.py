@@ -11,6 +11,8 @@ class UserRegister(Resource):
     data = UserRegister.parser.parse_args()
 
     # check if user already exists
+    if UserModel.find_by_username(data['username']):
+      return {'message': f'User with username {data["username"]} already exists.'}, 400
 
     # create a new user
     user = UserModel(None, data['username'], data['password'])
