@@ -6,11 +6,19 @@ class UserModel(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   username = db.Column(db.String(32))
   password = db.Column(db.String(64))
+  bio = db.Column(db.String(150))
 
-  def __init__(self, _id, username, password):
+  def __init__(self, _id, username, password, bio):
     self.id = _id
     self.username = username
     self.password = password
+    self.bio = bio
+  
+  def json(self):
+    return {
+      'username': self.username,
+      'bio': self.bio
+    }
 
   def save_to_db(self):
     db.session.add(self)

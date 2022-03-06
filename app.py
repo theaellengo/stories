@@ -3,7 +3,7 @@ from flask_restful import Api
 from flask_jwt import JWT
 from security import authenticate, identity
 
-from resources.user import UserRegister
+from resources.user import UserRegister, User
 
 from consts import port, secret_key, dbname
 from db import db
@@ -20,6 +20,7 @@ def create_tables():
 
 jwt = JWT(app, authenticate, identity)
 
+api.add_resource(User, '/user/<string:username>')
 api.add_resource(UserRegister, '/register')
 
 if __name__ == '__main__':
