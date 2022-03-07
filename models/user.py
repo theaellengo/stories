@@ -8,6 +8,8 @@ class UserModel(db.Model):
   password = db.Column(db.String(64))
   bio = db.Column(db.String(150))
 
+  stories = db.relationship('StoryModel', lazy='dynamic')
+
   def __init__(self, _id, username, password, bio):
     self.id = _id
     self.username = username
@@ -17,7 +19,8 @@ class UserModel(db.Model):
   def json(self):
     return {
       'username': self.username,
-      'bio': self.bio
+      'bio': self.bio,
+      'stories': [story.json() for story in self.stories.all()]
     }
 
   def save_to_db(self):

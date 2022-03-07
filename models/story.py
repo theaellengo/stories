@@ -8,9 +8,13 @@ class StoryModel(db.Model):
   title = db.Column(db.String(80))
   description = db.Column(db.String(300))
 
-  def __init__(self, title, description):
+  user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+  user = db.relationship('UserModel')
+
+  def __init__(self, title, description, user_id):
     self.title = title
     self.description = description
+    self.user_id = user_id
 
   def json(self):
     return {
