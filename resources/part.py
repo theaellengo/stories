@@ -21,7 +21,7 @@ class PartAdd(Resource):
       return {'message': 'Story or User does not exist.'}, 404
     
     req_data = PartAdd.parser.parse_args()
-    part = PartModel(req_data['description'], user_id, story_id)
+    part = PartModel(req_data['description'], story_id, user_id)
 
     try: part.save_to_db()
     except: {'message': 'An error occured saving the part'}, 500
@@ -29,6 +29,6 @@ class PartAdd(Resource):
     return part.json(), 200
 
 class PartList(Resource):
-  def get():
+  def get(self):
     parts = [part.json() for part in PartModel.query.all()]
     return parts

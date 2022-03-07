@@ -5,7 +5,7 @@ from security import authenticate, identity
 
 from resources.user import UserRegister, User
 from resources.story import Story, StoryList, StoryAdd
-from resources.part import Part, PartAdd
+from resources.part import Part, PartAdd, PartList
 
 from consts import port, secret_key, dbname
 from db import db
@@ -27,7 +27,10 @@ api.add_resource(UserRegister, '/register')
 api.add_resource(StoryList, '/stories')
 api.add_resource(StoryAdd, '/<string:user_id>/add')
 api.add_resource(Story, '/story/<string:_id>')
+api.add_resource(PartList, '/parts')
+api.add_resource(PartAdd, '/<string:story_id>/<string:user_id>/add')
 api.add_resource(Part, '/part/<string:_id>')
+
 
 
 if __name__ == '__main__':

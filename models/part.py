@@ -9,9 +9,10 @@ class PartModel(db.Model):
   user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
   user = db.relationship('UserModel')
 
-  def __init__(self, part, user_id):
+  def __init__(self, part, story_id, user_id):
     self.part = part
     self.user_id = user_id
+    self.story_id = story_id
   
   def json(self):
     return {
