@@ -1,4 +1,3 @@
-from sqlalchemy import desc
 from db import db
 
 class StoryModel(db.Model):

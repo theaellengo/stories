@@ -9,7 +9,7 @@ class UserModel(db.Model):
   bio = db.Column(db.String(150))
 
   stories = db.relationship('StoryModel', lazy='dynamic')
-  parts = db.relationship('PartModel', lazy='dymamic')
+  parts = db.relationship('PartModel')
 
   def __init__(self, _id, username, password, bio):
     self.id = _id
