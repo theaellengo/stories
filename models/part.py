@@ -5,9 +5,13 @@ class PartModel(db.Model):
   __tablename__ = 'parts'
   id = db.Column(db.Integer, primary_key=True)
   part = db.Column(db.String(10000))
+  
+  user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+  user = db.relationship('UserModel')
 
-  def __init__(self, part):
+  def __init__(self, part, user_id):
     self.part = part
+    self.user_id = user_id
   
   def json(self):
     return {
