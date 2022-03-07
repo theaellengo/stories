@@ -1,7 +1,7 @@
 from sqlalchemy import desc
 from db import db
 
-class StorieModel(db.Model):
+class StoryModel(db.Model):
 
   __tablename__= 'stories'
   id = db.Column(db.Integer, primary_key=True)
@@ -20,12 +20,12 @@ class StorieModel(db.Model):
 
   @classmethod
   def find_by_name(self, name):
-    story = StorieModel.query.filter_by(name=name).first()
+    story = StoryModel.query.filter_by(name=name).first()
     return story if story else None
   
   @classmethod
   def find_by_id(self, _id):
-    story = StorieModel.query.filter_by(id=_id).first()
+    story = StoryModel.query.filter_by(id=_id).first()
     return story if story else None
   
   def save_to_db(self):
