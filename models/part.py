@@ -21,7 +21,8 @@ class PartModel(db.Model):
     return {
       'id': self.id,
       'part': self.part,
-      'user_id': self.user_id
+      'user_id': self.user_id,
+      'story_id': self.story_id
     }
   
   @classmethod

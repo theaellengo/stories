@@ -10,7 +10,7 @@ class StoryModel(db.Model):
   user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
   user = db.relationship('UserModel')
 
-  parts = db.relationship('PartModel')
+  parts = db.relationship('PartModel', lazy='dynamic')
 
   def __init__(self, title, description, user_id):
     self.title = title
