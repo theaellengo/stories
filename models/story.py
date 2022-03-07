@@ -10,6 +10,8 @@ class StoryModel(db.Model):
   user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
   user = db.relationship('UserModel')
 
+  parts = db.relationship('PartModel')
+
   def __init__(self, title, description, user_id):
     self.title = title
     self.description = description
@@ -18,7 +20,8 @@ class StoryModel(db.Model):
   def json(self):
     return {
       'title': self.title,
-      'description': self.description
+      'description': self.description,
+      'parts': [part.json() for part in self.parts.all()]
     }
 
   @classmethod

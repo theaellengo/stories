@@ -9,6 +9,9 @@ class PartModel(db.Model):
   user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
   user = db.relationship('UserModel')
 
+  story_id = db.Column(db.Integer, db.ForeignKey('stories.id'))
+  story = db.relationship('StoryModel')
+
   def __init__(self, part, story_id, user_id):
     self.part = part
     self.user_id = user_id
