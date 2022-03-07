@@ -1,4 +1,5 @@
 from flask_restful import Resource, reqparse
+from flask_jwt import jwt_required
 from models.part import PartModel
 from models.story import StoryModel
 from models.user import UserModel
@@ -13,6 +14,7 @@ class PartAdd(Resource):
   parser = reqparse.RequestParser()
   parser.add_argument('description', type=str, required=True, help='Content is required.')
 
+  @jwt_required()
   def post(self, story_id, user_id):
     
     user = UserModel.find_by_id(user_id)

@@ -1,4 +1,5 @@
 from flask_restful import Resource, reqparse
+from flask_jwt import jwt_required
 from models.story import StoryModel
 from models.user import UserModel
 
@@ -18,6 +19,7 @@ class StoryAdd(Resource):
   parser.add_argument('title', type=str, required=True, help='Every story needs a title.')
   parser.add_argument('description', type=str, required=False)
 
+  @jwt_required()
   def post(self, user_id):
     
     req_data = StoryAdd.parser.parse_args()
