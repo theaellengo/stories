@@ -1,8 +1,8 @@
 /* Global Styles */
 :root {
 	--primary-color: #f4a48b;
-	--dark-color: #343a40;
-	--light-color: #f4f4f4;
+	--dark-color: #333333;
+	--light-color: #ffffff;
 	--danger-color: #dc3545;
 	--success-color: #28a745;
 }
@@ -34,13 +34,30 @@ img {
 	width: 100%;
 }
 
+/*Story*/
+.story {
+	box-shadow: 2px 2px 20px 0px rgba(2, 2, 2, 0.1);
+	border-radius: 36px;
+	outline: none;
+}
+
+.story-title {
+	font-size: 2rem;
+	font-weight: 100;
+}
+
+.story-owner {
+	font-size: 1rem;
+	font-weight: 100;
+}
+
 /* Utilities */
 .container {
-	max-width: 1100px;
+	max-width: 1500px;
 	margin: auto;
 	overflow: hidden;
 	padding: 0 2rem;
-	margin-top: 6rem;
+	margin-top: 3rem;
 	margin-bottom: 3rem;
 }
 
@@ -60,6 +77,11 @@ img {
 .lead {
 	font-size: 1.5rem;
 	margin-bottom: 1rem;
+}
+
+.title {
+	font-size: 2rem;
+	font-weight: 100;
 }
 
 .text-center {
@@ -129,10 +151,26 @@ img {
 	margin: 3rem 0;
 }
 
+.row {
+	display: flex;
+}
+
+.col-4 {
+	width: 40%;
+}
+
+.col-5 {
+	width: 50%;
+}
+
+.col-6 {
+	width: 60%;
+}
+
 .btn {
 	display: inline-block;
-	background: var(--light-color);
-	color: #333;
+	background: var(--primary-color);
+	color: #fff;
 	padding: 0.4rem 1.3rem;
 	font-size: 1rem;
 	border: none;
@@ -238,6 +276,12 @@ img {
 }
 
 /* Forms */
+.form-container {
+	box-shadow: 2px 2px 20px 0px rgba(2, 2, 2, 0.1);
+	border-radius: 36px;
+	outline: none;
+}
+
 .form .form-group {
 	margin: 1.2rem 0;
 }

@@ -1,13 +1,21 @@
-import './App.css';
-import React, { useState, useEffect, Fragment } from 'react';
-
+import React, { Fragment } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
+import Stories from './components/layout/Stories';
+import Register from './components/auth/Register';
+
+import './App.css';
 
 const App = () => (
-	<Fragment>
-		<Navbar />
-		<h1>Stories</h1>
-	</Fragment>
+	<Router>
+		<Fragment>
+			<Navbar />
+			<Routes>
+				<Route exact path="/stories" element={<Stories />} />
+				<Route exact path="/register" element={<Register />} />
+			</Routes>
+		</Fragment>
+	</Router>
 );
 
 export default App;
