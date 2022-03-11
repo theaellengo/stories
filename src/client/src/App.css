@@ -36,9 +36,8 @@ img {
 
 /*Story*/
 .story {
-	box-shadow: 2px 2px 20px 0px rgba(2, 2, 2, 0.1);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	border-radius: 36px;
-	outline: none;
 }
 
 .story-title {
@@ -153,18 +152,27 @@ img {
 
 .row {
 	display: flex;
+	max-width: 1500px;
+	margin: auto;
+	overflow: hidden;
+	padding: 0 2rem;
+	margin-top: 3rem;
+	margin-bottom: 3rem;
 }
 
 .col-4 {
 	width: 40%;
+	min-width: 400px;
 }
 
 .col-5 {
 	width: 50%;
+	min-width: 500px;
 }
 
 .col-6 {
 	width: 60%;
+	min-width: 600px;
 }
 
 .btn {
@@ -177,7 +185,7 @@ img {
 	cursor: pointer;
 	margin-right: 0.5rem;
 	transition: opacity 0.2s ease-in;
-	outline: none;
+	width: 100%;
 }
 
 .badge {
@@ -203,6 +211,9 @@ img {
 .alert-primary {
 	background: var(--primary-color);
 	color: #fff;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	border-radius: 36px;
+	padding: 1rem;
 }
 
 .btn-light,
@@ -277,9 +288,8 @@ img {
 
 /* Forms */
 .form-container {
-	box-shadow: 2px 2px 20px 0px rgba(2, 2, 2, 0.1);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	border-radius: 36px;
-	outline: none;
 }
 
 .form .form-group {
@@ -300,9 +310,15 @@ img {
 .form textarea {
 	display: block;
 	width: 100%;
-	padding: 0.4rem;
+	padding: 1rem;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
 	font-size: 1.2rem;
 	border: 1px solid #ccc;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	border-radius: 36px;
+	max-width: 100%;
+	font-family: 'Amiri', serif;
 }
 
 .form input[type='submit'],

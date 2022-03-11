@@ -5,13 +5,47 @@ const Register = () => {
 		<section className="container">
 			<div class="row">
 				<div class="col-4">
-					<form className="form-container bg-white p-2 m-2">
+					<div className="form-container p-2 m-2">
 						<p className="title">Register</p>
-						<input></input>
-						<button>Submit</button>
-					</form>
+						<form class="form">
+							<div class="form-group">
+								<input
+									type="text"
+									placeholder="Usename"
+									name="username"
+									required
+								/>
+							</div>
+							<div class="form-group">
+								<input
+									type="password"
+									placeholder="Password"
+									name="password"
+									minLength="6"
+								/>
+							</div>
+							<div class="form-group">
+								<input
+									type="password"
+									placeholder="Confirm Password"
+									name="password2"
+									minLength="6"
+								/>
+							</div>
+							<div class="form-group">
+								<textarea
+									type="text"
+									placeholder="About you..."
+									name="description"
+									cols="30"
+									rows="5"
+								/>
+							</div>
+							<input type="submit" class="btn btn-primary" value="Register" />
+						</form>
+					</div>
 				</div>
-				<div class="col-6 py-2">
+				<div class="col-6 p-2">
 					<h1 className="large">Stories</h1>
 					<p className="lead">
 						Connect with the community through literature by <br />
