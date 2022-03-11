@@ -3,12 +3,12 @@ import React from 'react';
 const Login = () => {
 	return (
 		<section className="container">
-			<div class="row">
-				<div class="col-4">
+			<div className="row">
+				<div className="col-4">
 					<div className="form-container p-2 m-2">
 						<p className="title">Login</p>
-						<form class="form">
-							<div class="form-group">
+						<form className="form">
+							<div className="form-group">
 								<input
 									type="text"
 									placeholder="Usename"
@@ -16,7 +16,7 @@ const Login = () => {
 									required
 								/>
 							</div>
-							<div class="form-group">
+							<div className="form-group">
 								<input
 									type="password"
 									placeholder="Password"
@@ -24,11 +24,11 @@ const Login = () => {
 									minLength="6"
 								/>
 							</div>
-							<input type="submit" class="btn btn-primary" value="Login" />
+							<input type="submit" className="btn btn-primary" value="Login" />
 						</form>
 					</div>
 				</div>
-				<div class="col-6 p-2">
+				<div className="col-6 p-2">
 					<h1 className="large">Stories</h1>
 					<p className="lead">
 						Connect with the community through literature by <br />

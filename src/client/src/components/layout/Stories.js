@@ -4,7 +4,7 @@ const Stories = () => {
 	return (
 		<section className="container">
 			<h1 className="large">
-				<i class="fa-solid fa-book"></i> Stories
+				<i className="fa-solid fa-book"></i> Stories
 			</h1>
 
 			<div className="story bg-white p-2 m-2">
