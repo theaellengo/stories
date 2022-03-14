@@ -229,12 +229,21 @@ img {
 	color: #333;
 }
 
+.alert-container {
+	position: absolute;
+	width: 100%;
+}
+
 .alert {
-	padding: 0.8rem;
-	margin: 1rem 0;
+	margin: 2rem 2rem;
+	padding: 0.8rem 2rem;
+	border-radius: 36px;
 	opacity: 0.9;
 	background: var(--light-color);
 	color: #333;
+	font-size: 1.2rem;
+	font-family: Helvetica, sans-serif;
+	position: relative;
 }
 
 .btn-primary,

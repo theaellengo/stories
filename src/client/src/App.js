@@ -6,6 +6,7 @@ import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Parts from './components/layout/Parts';
 import Profile from './components/layout/Profile';
+import Alert from './components/layout/Alert';
 
 // Redux
 import { Provider } from 'react-redux';
@@ -18,6 +19,9 @@ const App = () => (
 		<Router>
 			<Fragment>
 				<Navbar />
+				<div className="alert-container">
+					<Alert />
+				</div>
 				<Routes>
 					<Route exact path="/stories" element={<Stories />} />
 					<Route exact path="/register" element={<Register />} />
