@@ -3,13 +3,15 @@ import { connect } from 'react-redux';
 import { setAlert } from '../../actions/alert';
 import PropTypes from 'prop-types';
 
+const initialState = {
+	username: '',
+	password: '',
+	password2: '',
+	bio: '',
+};
+
 const Register = ({ setAlert }) => {
-	const [formData, setFormData] = useState({
-		username: '',
-		password: '',
-		password2: '',
-		bio: '',
-	});
+	const [formData, setFormData] = useState(initialState);
 
 	const { username, password, password2, bio } = formData;
 
@@ -20,6 +22,7 @@ const Register = ({ setAlert }) => {
 		e.preventDefault();
 		if (password !== password2) {
 			setAlert('Passwords do not match.', 'danger');
+			setFormData(initialState);
 		} else {
 			console.log('success');
 		}
