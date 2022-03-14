@@ -7,21 +7,27 @@ import Login from './components/auth/Login';
 import Parts from './components/layout/Parts';
 import Profile from './components/layout/Profile';
 
+// Redux
+import { Provider } from 'react-redux';
+import store from './store';
+
 import './App.css';
 
 const App = () => (
-	<Router>
-		<Fragment>
-			<Navbar />
-			<Routes>
-				<Route exact path="/stories" element={<Stories />} />
-				<Route exact path="/register" element={<Register />} />
-				<Route exact path="/login" element={<Login />} />
-				<Route exact path="/part" element={<Parts />} />
-				<Route exact path="/profile" element={<Profile />} />
-			</Routes>
-		</Fragment>
-	</Router>
+	<Provider store={store}>
+		<Router>
+			<Fragment>
+				<Navbar />
+				<Routes>
+					<Route exact path="/stories" element={<Stories />} />
+					<Route exact path="/register" element={<Register />} />
+					<Route exact path="/login" element={<Login />} />
+					<Route exact path="/part" element={<Parts />} />
+					<Route exact path="/profile" element={<Profile />} />
+				</Routes>
+			</Fragment>
+		</Router>
+	</Provider>
 );
 
 export default App;
