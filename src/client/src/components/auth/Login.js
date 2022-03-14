@@ -1,15 +1,32 @@
-import React from 'react';
+import React, { Fragment, useState } from 'react';
 
 const Login = () => {
+	const [formData, setFormData] = useState({
+		username: '',
+		password: '',
+	});
+
+	const { username, password } = formData;
+
+	const onChange = (e) =>
+		setFormData({ ...formData, [e.target.name]: e.target.value });
+
+	const onSubmit = async (e) => {
+		e.preventDefault();
+		console.log('success');
+	};
+
 	return (
 		<section className="container">
 			<div className="row">
 				<div className="col-4">
 					<div className="form-container p-2 m-2">
 						<p className="title">Login</p>
-						<form className="form">
+						<form className="form" onSubmit={(e) => onSubmit(e)}>
 							<div className="form-group">
 								<input
+									value={username}
+									onChange={(e) => onChange(e)}
 									type="text"
 									placeholder="Usename"
 									name="username"
@@ -18,6 +35,8 @@ const Login = () => {
 							</div>
 							<div className="form-group">
 								<input
+									value={password}
+									onChange={(e) => onChange(e)}
 									type="password"
 									placeholder="Password"
 									name="password"
