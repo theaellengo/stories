@@ -1,10 +1,12 @@
 import React, { Fragment, useState } from 'react';
 
+const initialState = {
+	username: '',
+	password: '',
+};
+
 const Login = () => {
-	const [formData, setFormData] = useState({
-		username: '',
-		password: '',
-	});
+	const [formData, setFormData] = useState(initialState);
 
 	const { username, password } = formData;
 
