@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify
 from flask_restful import Api
 from flask_jwt_extended import JWTManager
 
@@ -8,11 +8,14 @@ from resources.part import Part, PartAdd, PartList
 
 from consts import port, secret_key, dbname
 from db import db
+from blacklist import BLACKLIST
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + dbname
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['PROPAGATE_EXCEPTIONS'] = True
+app.config['JWT_BLACKLIST_ENABLE'] = True
+app.config['JWT_BLACKLIST_TOKEN_CHECKS'] = ['access']
 app.secret_key = secret_key
 
 api = Api(app)
@@ -22,6 +25,17 @@ def create_tables():
   db.create_all()
 
 jwt = JWTManager(app)
+
+@jwt.token_in_blocklist_loader
+def check_if_token_in_blacklist(_decrypted_header, decrypted_body):
+  return decrypted_body['sub'] in BLACKLIST
+
+@jwt.revoked_token_loader
+def revoked_token_callback(_decrypted_header, decrypted_body):
+  return jsonify({
+    'message': 'This token has been revoked.',
+    'error': 'token_revoked'
+  }), 401
 
 api.add_resource(User, '/user/<string:username>')
 api.add_resource(UserRegister, '/register')
