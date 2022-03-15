@@ -1,5 +1,5 @@
 from flask_restful import Resource, reqparse
-from flask_jwt_extended import jwt_required
+from flask_jwt_extended import jwt_required, get_jwt_identity
 from models.story import StoryModel
 from models.user import UserModel
 
@@ -8,9 +8,16 @@ class Story(Resource):
     story = StoryModel.find_by_id(_id)
     return story.json() if story else {'message': 'Story cannot be found.'}, 404
   
+  @jwt_required(optional=True)
   def delete(self, _id):
     story = StoryModel.find_by_id(_id)
-    if story: story.delete_from_db()
+    if story: 
+      user_id = get_jwt_identity()
+      print(user_id)
+      if user_id == story.user_id:
+        story.delete_from_db()
+      else:
+        return {'message': 'Only story owner can delete the story.'}
     return {'message': 'Story has been deleted'}, 200
 
 class StoryAdd(Resource):
