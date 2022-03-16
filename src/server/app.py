@@ -2,7 +2,7 @@ from flask import Flask, jsonify
 from flask_restful import Api
 from flask_jwt_extended import JWTManager
 
-from resources.user import UserRegister, User, UserLogin
+from resources.user import UserRegister, User, UserLogin, UserLogout
 from resources.story import Story, StoryList, StoryAdd
 from resources.part import Part, PartAdd, PartList
 
@@ -28,7 +28,7 @@ jwt = JWTManager(app)
 
 @jwt.token_in_blocklist_loader
 def check_if_token_in_blacklist(_decrypted_header, decrypted_body):
-  return decrypted_body['sub'] in BLACKLIST
+  return decrypted_body['jti'] in BLACKLIST
 
 @jwt.revoked_token_loader
 def revoked_token_callback(_decrypted_header, decrypted_body):
@@ -40,9 +40,12 @@ def revoked_token_callback(_decrypted_header, decrypted_body):
 api.add_resource(User, '/user/<string:username>')
 api.add_resource(UserRegister, '/register')
 api.add_resource(UserLogin, '/login')
+api.add_resource(UserLogout, '/logout')
+
 api.add_resource(StoryList, '/stories')
 api.add_resource(StoryAdd, '/<int:user_id>/add')
 api.add_resource(Story, '/story/<int:_id>')
+
 api.add_resource(PartList, '/parts')
 api.add_resource(PartAdd, '/<int:story_id>/<int:user_id>/add')
 api.add_resource(Part, '/part/<int:_id>')
