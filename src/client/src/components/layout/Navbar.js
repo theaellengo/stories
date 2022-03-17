@@ -5,7 +5,7 @@ const Navbar = () => {
 	return (
 		<nav className="navbar bg-light">
 			<h1>
-				<Link to="/stories">
+				<Link to="/">
 					<i className="fa-solid fa-pen-nib"></i> Stories
 				</Link>
 			</h1>
