@@ -5,7 +5,6 @@ import Navbar from './components/layout/Navbar';
 import Stories from './components/layout/Stories';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
-import Logout from './components/auth/Logout';
 import Parts from './components/layout/Parts';
 import Profile from './components/layout/Profile';
 import Alert from './components/layout/Alert';
@@ -38,7 +37,6 @@ const App = () => {
 						<Route exact path="/stories" element={<Stories />} />
 						<Route exact path="/register" element={<Register />} />
 						<Route exact path="/login" element={<Login />} />
-						<Route exact path="/logout" element={<Logout />} />
 						<Route exact path="/part" element={<Parts />} />
 						<Route exact path="/profile" element={<Profile />} />
 					</Routes>

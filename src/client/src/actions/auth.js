@@ -8,6 +8,7 @@ import {
 	AUTH_ERROR,
 	LOGIN_SUCCESS,
 	LOGIN_FAIL,
+	LOGOUT,
 } from './types';
 
 export const loadUser = () => async (dispatch) => {
@@ -63,9 +64,5 @@ export const login =
 	};
 
 export const logout = () => async (dispatch) => {
-	dispatch(loadUser());
-	const config = {
-		headers: { Authorization: 'Bearer ' + localStorage.token },
-	};
-	await axios.post('/logout', config);
+	dispatch({ type: LOGOUT });
 };
