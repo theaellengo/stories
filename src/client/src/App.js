@@ -1,9 +1,11 @@
 import React, { Fragment, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Index from './components/layout/Index';
 import Navbar from './components/layout/Navbar';
 import Stories from './components/layout/Stories';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
+import Logout from './components/auth/Logout';
 import Parts from './components/layout/Parts';
 import Profile from './components/layout/Profile';
 import Alert from './components/layout/Alert';
@@ -32,9 +34,11 @@ const App = () => {
 						<Alert />
 					</div>
 					<Routes>
+						<Route exact path="/" element={<Index />} />
 						<Route exact path="/stories" element={<Stories />} />
 						<Route exact path="/register" element={<Register />} />
 						<Route exact path="/login" element={<Login />} />
+						<Route exact path="/logout" element={<Logout />} />
 						<Route exact path="/part" element={<Parts />} />
 						<Route exact path="/profile" element={<Profile />} />
 					</Routes>

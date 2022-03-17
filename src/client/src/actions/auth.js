@@ -61,3 +61,11 @@ export const login =
 			dispatch({ type: LOGIN_FAIL });
 		}
 	};
+
+export const logout = () => async (dispatch) => {
+	dispatch(loadUser());
+	const config = {
+		headers: { Authorization: 'Bearer ' + localStorage.token },
+	};
+	await axios.post('/logout', config);
+};
