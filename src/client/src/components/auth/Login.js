@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { login } from '../../actions/auth';
 import PropTypes from 'prop-types';
+import { setAlert } from '../../actions/alert';
 
-const initialState = {
-	username: '',
-	password: '',
-};
-
-const Login = ({ login }) => {
-	const [formData, setFormData] = useState(initialState);
+const Login = ({ login, isAuthenticated }) => {
+	const [formData, setFormData] = useState({
+		username: '',
+		password: '',
+	});
 
 	const { username, password } = formData;
 
@@ -20,8 +20,14 @@ const Login = ({ login }) => {
 		e.preventDefault();
 		try {
 			login({ username, password });
-		} catch (error) {}
+		} catch (error) {
+			setAlert(error, 'danger');
+		}
 	};
+
+	if (isAuthenticated) {
+		return <Navigate to="/stories"></Navigate>;
+	}
 
 	return (
 		<section className="container">
@@ -69,6 +75,11 @@ const Login = ({ login }) => {
 
 Login.propTypes = {
 	login: PropTypes.func.isRequired,
+	isAuthenticated: PropTypes.bool,
 };
 
-export default connect(null, { login })(Login);
+const mapStateToProps = (state) => ({
+	isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps, { login })(Login);

@@ -15,7 +15,10 @@ export const loadUser = () => async (dispatch) => {
 		setAuthToken(localStorage.token);
 	}
 	try {
-		const res = await axios.get('/user');
+		const config = {
+			headers: { Authorization: 'Bearer ' + localStorage.token },
+		};
+		const res = await axios.get(`/user`, config);
 		dispatch({ type: USER_LOADED, payload: res.data });
 	} catch (err) {
 		dispatch({ type: AUTH_ERROR });
@@ -28,9 +31,7 @@ export const register =
 		const config = {
 			headers: { 'Content-Type': 'application/json' },
 		};
-
 		const body = JSON.stringify({ username, password, bio });
-
 		try {
 			await axios.post('/register', body, config);
 			dispatch({ type: REGISTER_SUCCESS });
@@ -48,9 +49,7 @@ export const login =
 		const config = {
 			headers: { 'Content-Type': 'application/json' },
 		};
-
 		const body = JSON.stringify({ username, password });
-
 		try {
 			const res = await axios.post('/login', body, config);
 			dispatch({ type: LOGIN_SUCCESS, payload: res.data });

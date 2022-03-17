@@ -18,10 +18,11 @@ export default function (state = initialState, action) {
 	const { type, payload } = action;
 	switch (type) {
 		case USER_LOADED:
+			console.log(localStorage.getItem('token'));
 			return {
 				...state,
 				isAuthenticated: true,
-				loading: true,
+				loading: false,
 				user: payload,
 			};
 		case LOGIN_SUCCESS:
