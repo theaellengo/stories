@@ -1,12 +1,13 @@
 import React, { Fragment, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import PrivateRoute from './components/routing/PrivateRoute';
 import Index from './components/layout/Index';
 import Navbar from './components/layout/Navbar';
 import Stories from './components/layout/Stories';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Parts from './components/layout/Parts';
-import Profile from './components/layout/Profile';
+import Profile from './components/profile/Profile';
 import Alert from './components/layout/Alert';
 import setAuthToken from './utils/setAuthToken';
 import { loadUser } from './actions/auth';
@@ -38,7 +39,10 @@ const App = () => {
 						<Route exact path="/register" element={<Register />} />
 						<Route exact path="/login" element={<Login />} />
 						<Route exact path="/part" element={<Parts />} />
-						<Route exact path="/profile" element={<Profile />} />
+						<Route
+							path="/profile"
+							element={<PrivateRoute component={Profile} />}
+						/>
 					</Routes>
 				</Fragment>
 			</Router>
