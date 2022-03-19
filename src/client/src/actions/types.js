@@ -15,3 +15,7 @@ export const LOGOUT = 'LOGOUT';
 export const GET_PROFILE = 'GET_PROFILE';
 export const PROFILE_ERROR = 'PROFILE_ERROR';
 export const CLEAR_PROFILE = 'CLEAR_PROFILE';
+
+//story
+export const GET_STORIES = 'GET_STORIES';
+export const STORIES_ERROR = 'STORIES_ERROR';

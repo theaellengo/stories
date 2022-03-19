@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import PrivateRoute from './components/routing/PrivateRoute';
 import Index from './components/layout/Index';
 import Navbar from './components/layout/Navbar';
-import Stories from './components/layout/Stories';
+import Stories from './components/stories/Stories';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Parts from './components/layout/Parts';

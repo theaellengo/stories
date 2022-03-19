@@ -50,6 +50,18 @@ img {
 	font-weight: 100;
 }
 
+.story-part {
+	color: #333;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	padding-bottom: 1em;
+}
+
+.story-part-deleted {
+	color: rgb(120, 120, 120);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	padding-bottom: 1em;
+}
+
 /* Utilities */
 .container {
 	max-width: 1500px;
