@@ -7,6 +7,7 @@ import Stories from './components/stories/Stories';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Parts from './components/layout/Parts';
+import User from './components/profile/User';
 import Profile from './components/profile/Profile';
 import Alert from './components/layout/Alert';
 import setAuthToken from './utils/setAuthToken';
@@ -39,10 +40,8 @@ const App = () => {
 						<Route exact path="/register" element={<Register />} />
 						<Route exact path="/login" element={<Login />} />
 						<Route exact path="/part" element={<Parts />} />
-						<Route
-							path="/profile"
-							element={<PrivateRoute component={Profile} />}
-						/>
+						<Route exact path="/profile/:id" element={<Profile />} />
+						<Route path="/user" element={<PrivateRoute component={User} />} />
 					</Routes>
 				</Fragment>
 			</Router>

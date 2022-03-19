@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
 	const authLinks = (
 		<ul className="nav-items">
-			<li>{user && <Link to="/profile">{user.username}</Link>}</li>
+			<li>{user && <Link to="/user">{user.username}</Link>}</li>
 			<li>
 				<a onClick={logout}>Logout</a>
 			</li>

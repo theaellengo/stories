@@ -19,3 +19,5 @@ export const CLEAR_PROFILE = 'CLEAR_PROFILE';
 //story
 export const GET_STORIES = 'GET_STORIES';
 export const STORIES_ERROR = 'STORIES_ERROR';
+export const GET_STORY = 'GET_STORY';
+export const STORY_ERROR = 'STORY_ERROR';

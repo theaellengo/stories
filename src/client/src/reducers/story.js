@@ -1,4 +1,9 @@
-import { GET_STORIES, STORIES_ERROR } from '../actions/types';
+import {
+	GET_STORIES,
+	STORIES_ERROR,
+	GET_STORY,
+	STORY_ERROR,
+} from '../actions/types';
 
 const initialState = {
 	stories: [],
@@ -14,6 +19,18 @@ export default function (state = initialState, action) {
 			return {
 				...state,
 				stories: payload,
+				loading: false,
+			};
+		case GET_STORY:
+			return {
+				...state,
+				post: payload,
+				loading: false,
+			};
+		case STORY_ERROR:
+			return {
+				...state,
+				post: null,
 				loading: false,
 			};
 		case STORIES_ERROR:

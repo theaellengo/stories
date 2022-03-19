@@ -11,7 +11,9 @@ const StoryItem = ({ story: { id, title, description, owner } }) => {
 				<div className="story bg-white p-2 m-2">
 					<h1 className="story-title">{title}</h1>
 					<div>
-						<h4 className="story-owner">{owner}</h4>
+						<a href={`/profile/${owner}`}>
+							<h4 className="story-owner">{owner}</h4>
+						</a>
 						<p>{description}</p>
 					</div>
 				</div>

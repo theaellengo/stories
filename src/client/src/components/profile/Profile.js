@@ -1,16 +1,16 @@
 import React, { Fragment, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { useParams } from 'react-router-dom';
 import { getProfile } from '../../actions/profile';
 
-const Profile = ({
-	auth: { user },
-	profile: { profile, loading },
-	getProfile,
-}) => {
+const Profile = ({ match, getProfile, profile: { profile, loading } }) => {
+	const { id } = useParams();
+
 	useEffect(() => {
-		getProfile(user.id);
-	}, []);
+		getProfile(id);
+	}, [getProfile]);
+
 	return (
 		!loading &&
 		profile !== null && (
@@ -58,56 +58,6 @@ const Profile = ({
 									</Fragment>
 								)
 							)}
-							<div className="story-part pt-2">
-								<p>storyname</p>
-								<p>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-									posuere ante ut pretium lobortis. Proin convallis dolor massa,
-									nec congue metus imperdiet vitae. Pellentesque ut sagittis
-									ante, nec auctor magna. Nulla facilisi. Praesent ut ante in
-									dolor fringilla vehicula. Mauris finibus nec tellus eu
-									tincidunt. Ut id tincidunt magna, quis ornare mi. Nunc eget
-									aliquam augue, quis mattis libero. Maecenas et aliquam leo.
-									Phasellus tincidunt arcu id molestie vulputate. Ut facilisis
-									ligula sit amet tellus lobortis blandit. Pellentesque et augue
-									a lorem aliquet lobortis. Pellentesque ipsum ex, auctor et
-									dignissim nec, semper id tortor.
-								</p>
-							</div>
-
-							<div className="story-part pt-2">
-								<p>storyname</p>
-								<p>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-									posuere ante ut pretium lobortis. Proin convallis dolor massa,
-									nec congue metus imperdiet vitae. Pellentesque ut sagittis
-									ante, nec auctor magna. Nulla facilisi. Praesent ut ante in
-									dolor fringilla vehicula. Mauris finibus nec tellus eu
-									tincidunt. Ut id tincidunt magna, quis ornare mi. Nunc eget
-									aliquam augue, quis mattis libero. Maecenas et aliquam leo.
-									Phasellus tincidunt arcu id molestie vulputate. Ut facilisis
-									ligula sit amet tellus lobortis blandit. Pellentesque et augue
-									a lorem aliquet lobortis. Pellentesque ipsum ex, auctor et
-									dignissim nec, semper id tortor.
-								</p>
-							</div>
-
-							<div className="story-part pt-2">
-								<p>storyname</p>
-								<p>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-									posuere ante ut pretium lobortis. Proin convallis dolor massa,
-									nec congue metus imperdiet vitae. Pellentesque ut sagittis
-									ante, nec auctor magna. Nulla facilisi. Praesent ut ante in
-									dolor fringilla vehicula. Mauris finibus nec tellus eu
-									tincidunt. Ut id tincidunt magna, quis ornare mi. Nunc eget
-									aliquam augue, quis mattis libero. Maecenas et aliquam leo.
-									Phasellus tincidunt arcu id molestie vulputate. Ut facilisis
-									ligula sit amet tellus lobortis blandit. Pellentesque et augue
-									a lorem aliquet lobortis. Pellentesque ipsum ex, auctor et
-									dignissim nec, semper id tortor.
-								</p>
-							</div>
 						</div>
 					</div>
 				</section>
@@ -117,14 +67,14 @@ const Profile = ({
 };
 
 Profile.propTypes = {
-	getProfile: PropTypes.func.isRequired,
-	auth: PropTypes.object.isRequired,
 	profile: PropTypes.object.isRequired,
+	auth: PropTypes.object.isRequired,
+	getProfile: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-	auth: state.auth,
 	profile: state.profile,
+	auth: state.auth,
 });
 
 export default connect(mapStateToProps, { getProfile })(Profile);
