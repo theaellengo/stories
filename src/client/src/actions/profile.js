@@ -2,12 +2,9 @@ import axios from 'axios';
 import { setAlert } from './alert';
 import { GET_PROFILE, PROFILE_ERROR } from './types';
 
-export const getCurrentProfile = () => async (dispatch) => {
+export const getProfile = (id) => async (dispatch) => {
 	try {
-		const config = {
-			headers: { Authorization: 'Bearer ' + localStorage.token },
-		};
-		const res = await axios.get('/user', config);
+		const res = await axios.get(`/user/${id}`);
 		dispatch({ type: GET_PROFILE, payload: res.data });
 	} catch (err) {
 		dispatch({
