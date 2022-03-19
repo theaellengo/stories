@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 import { getProfile } from '../../actions/profile';
 
-const Profile = ({ match, getProfile, profile: { profile, loading } }) => {
+const Profile = ({ getProfile, profile: { profile, loading } }) => {
 	const { id } = useParams();
 
 	useEffect(() => {

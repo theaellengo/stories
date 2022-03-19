@@ -184,6 +184,11 @@ img {
 	margin-bottom: 3rem;
 }
 
+.col-10 {
+	width: 100%;
+	min-width: 200px;
+}
+
 .col-2 {
 	width: 20%;
 	min-width: 200px;

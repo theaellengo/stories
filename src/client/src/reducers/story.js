@@ -3,6 +3,7 @@ import {
 	STORIES_ERROR,
 	GET_STORY,
 	STORY_ERROR,
+	ADD_STORY,
 } from '../actions/types';
 
 const initialState = {
@@ -19,6 +20,12 @@ export default function (state = initialState, action) {
 			return {
 				...state,
 				stories: payload,
+				loading: false,
+			};
+		case ADD_STORY:
+			return {
+				...state,
+				stories: [...state.stories, payload],
 				loading: false,
 			};
 		case GET_STORY:

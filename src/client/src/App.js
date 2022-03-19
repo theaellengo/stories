@@ -12,6 +12,7 @@ import Profile from './components/profile/Profile';
 import Alert from './components/layout/Alert';
 import setAuthToken from './utils/setAuthToken';
 import { loadUser } from './actions/auth';
+import StoryForm from './components/stories/StoryForm';
 
 // Redux
 import { Provider } from 'react-redux';
@@ -37,6 +38,7 @@ const App = () => {
 					<Routes>
 						<Route exact path="" element={<Index />} />
 						<Route exact path="/stories" element={<Stories />} />
+						<Route exact path="/add" element={<StoryForm />} />
 						<Route exact path="/register" element={<Register />} />
 						<Route exact path="/login" element={<Login />} />
 						<Route exact path="/part" element={<Parts />} />
