@@ -13,3 +13,12 @@ export const getProfile = (id) => async (dispatch) => {
 		});
 	}
 };
+
+export const getUser = (id) => async (dispatch) => {
+	try {
+		const res = await axios.get(`/user/${id}`);
+		return res.data;
+	} catch (err) {
+		dispatch(setAlert('Cannot get user', 'danger'));
+	}
+};
