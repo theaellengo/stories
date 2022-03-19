@@ -38,11 +38,14 @@ const App = () => {
 					<Routes>
 						<Route exact path="" element={<Index />} />
 						<Route exact path="/stories" element={<Stories />} />
-						<Route exact path="/add" element={<StoryForm />} />
 						<Route exact path="/register" element={<Register />} />
 						<Route exact path="/login" element={<Login />} />
 						<Route exact path="/part" element={<Parts />} />
 						<Route exact path="/profile/:id" element={<Profile />} />
+						<Route
+							path="/add"
+							element={<PrivateRoute component={StoryForm} />}
+						/>
 						<Route path="/user" element={<PrivateRoute component={User} />} />
 					</Routes>
 				</Fragment>

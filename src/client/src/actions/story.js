@@ -44,9 +44,8 @@ export const addStory =
 		const body = JSON.stringify({ title, description });
 		try {
 			const res = await axios.post(`/${user_id}/add`, body, config);
-			console.log(user_id);
+			dispatch(setAlert('The story was successfully added.', 'success'));
 			dispatch({ type: ADD_STORY, payload: res.data });
-			dispatch(setAlert('Story Added', 'success'));
 		} catch (err) {
 			dispatch({
 				type: STORY_ERROR,
