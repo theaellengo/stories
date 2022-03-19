@@ -52,6 +52,7 @@ const Profile = ({ getProfile, profile: { profile, loading } }) => {
 									<Fragment>
 										<a href={`/story/${part.story_id}`}>
 											<div className="story-part pt-2">
+												<p>{part.story_title}</p>
 												<p>{part.part}</p>
 											</div>
 										</a>
