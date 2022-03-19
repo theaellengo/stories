@@ -2,7 +2,7 @@ from flask import Flask, jsonify
 from flask_restful import Api
 from flask_jwt_extended import JWTManager
 
-from resources.user import UserRegister, User, UserLogin, UserLogout
+from resources.user import UserRegister, User, UserLogin, UserLogout, UserCurrent
 from resources.story import Story, StoryList, StoryAdd
 from resources.part import Part, PartAdd, PartList
 
@@ -37,7 +37,8 @@ def revoked_token_callback(_decrypted_header, decrypted_body):
     'error': 'token_revoked'
   }), 401
 
-api.add_resource(User, '/user/<string:username>')
+api.add_resource(User, '/user/<int:user_id>')
+api.add_resource(UserCurrent, '/user')
 api.add_resource(UserRegister, '/register')
 api.add_resource(UserLogin, '/login')
 api.add_resource(UserLogout, '/logout')

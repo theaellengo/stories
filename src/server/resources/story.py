@@ -13,7 +13,6 @@ class Story(Resource):
     story = StoryModel.find_by_id(_id)
     if story: 
       user_id = get_jwt_identity()
-      print(user_id)
       if user_id == story.user_id:
         story.delete_from_db()
       else:

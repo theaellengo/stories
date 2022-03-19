@@ -22,7 +22,9 @@ class PartModel(db.Model):
       'id': self.id,
       'part': self.part,
       'user_id': self.user_id,
-      'story_id': self.story_id
+      'story_id': self.story_id,
+      'user_username': self.user.username,
+      'story_title': self.story.title if self.story else None
     }
   
   @classmethod
