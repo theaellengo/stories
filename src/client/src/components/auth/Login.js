@@ -23,6 +23,7 @@ const Login = ({ login, isAuthenticated }) => {
 		} catch (error) {
 			setAlert(error, 'danger');
 		}
+		setFormData({ username: '', password: '' });
 	};
 
 	if (isAuthenticated) {

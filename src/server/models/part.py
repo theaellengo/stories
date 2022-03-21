@@ -29,7 +29,7 @@ class PartModel(db.Model):
   
   @classmethod
   def find_by_id(self, _id):
-    part = PartModel.query.filter_by(id=_id).first
+    part = PartModel.query.filter_by(id=_id).first()
     return part if part else None
 
   def save_to_db(self):

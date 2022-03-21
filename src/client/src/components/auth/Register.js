@@ -24,10 +24,10 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 		e.preventDefault();
 		if (password !== password2) {
 			setAlert('Passwords do not match.', 'danger');
-			setFormData(initialState);
 		} else {
 			register({ username, password, bio });
 		}
+		setFormData(initialState);
 	};
 
 	if (isAuthenticated) {

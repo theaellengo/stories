@@ -20,7 +20,7 @@ class StoryModel(db.Model):
   def json(self):
     return {
       'id': self.id,
-      'user_id': self.user_id,
+      'user_id': self.user.id,
       'user_username': self.user.username,
       'title': self.title,
       'description': self.description,

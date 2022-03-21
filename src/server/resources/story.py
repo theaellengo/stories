@@ -6,7 +6,8 @@ from models.user import UserModel
 class Story(Resource):
   def get(self, _id):
     story = StoryModel.find_by_id(_id)
-    return story.json() if story else {'message': 'Story cannot be found.'}, 404
+    if story is None: return {'message': 'Story does not exist.'}, 400
+    return story.json(), 200
   
   @jwt_required(optional=True)
   def delete(self, _id):

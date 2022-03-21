@@ -9,20 +9,21 @@ import { setAlert } from '../../actions/alert';
 const Story = ({ getStory, addPart, story: { story, loading }, auth }) => {
 	const { id } = useParams();
 
-	const [formData, setFormData] = useState({ part: '' });
-	const { part } = formData;
+	const [formData, setFormData] = useState({ description: '' });
+	const { description } = formData;
 
 	const onChange = (e) =>
 		setFormData({ ...formData, [e.target.name]: e.target.value });
 
 	const onSubmit = async (e) => {
 		e.preventDefault();
-		console.log('submit');
-		try {
-			//addPart(auth.user.id, { title, description });
-		} catch (error) {
-			setAlert(error, 'danger');
-		}
+		if (description !== '')
+			try {
+				addPart(auth.user.id, story.id, { description });
+			} catch (error) {
+				setAlert(error, 'danger');
+			}
+		setFormData({ description: '' });
 	};
 
 	useEffect(() => {
@@ -57,11 +58,11 @@ const Story = ({ getStory, addPart, story: { story, loading }, auth }) => {
 							<form className="form p-2 m-2" onSubmit={(e) => onSubmit(e)}>
 								<div className="form-group">
 									<textarea
-										value={part}
+										value={description}
 										onChange={(e) => onChange(e)}
 										type="text"
-										placeholder="..."
-										name="part"
+										placeholder="Please write something..."
+										name="description"
 										cols="30"
 										rows="5"
 									/>
@@ -69,7 +70,7 @@ const Story = ({ getStory, addPart, story: { story, loading }, auth }) => {
 								<input
 									type="submit"
 									className="btn btn-primary"
-									value="AddPart"
+									value="Add Part"
 								/>
 							</form>
 						</div>
