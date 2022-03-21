@@ -10,17 +10,17 @@ const Stories = ({ getStories, story: { stories, loading } }) => {
 	}, [getStories]);
 
 	return (
-		!loading &&
-		stories !== null && (
+		!loading && (
 			<Fragment>
 				<section className="container">
 					<h1 className="large">
 						<i className="fa-solid fa-book"></i> Stories
 					</h1>
 					<div className="stories">
-						{stories.stories.map((story) => (
-							<StoryItem key={story.id} story={story} />
-						))}
+						{stories.stories &&
+							stories.stories.map((story) => (
+								<StoryItem key={story.id} story={story} />
+							))}
 					</div>
 				</section>
 			</Fragment>

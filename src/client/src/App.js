@@ -37,7 +37,7 @@ const App = () => {
 						<Alert />
 					</div>
 					<Routes>
-						<Route exact path="" element={<Index />} />
+						<Route exact path="/" element={<Index />} />
 						<Route exact path="/stories" element={<Stories />} />
 						<Route exact path="/register" element={<Register />} />
 						<Route exact path="/login" element={<Login />} />
