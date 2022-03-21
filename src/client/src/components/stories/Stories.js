@@ -10,7 +10,8 @@ const Stories = ({ getStories, story: { stories, loading } }) => {
 	}, [getStories]);
 
 	return (
-		!loading && (
+		!loading &&
+		stories !== null && (
 			<Fragment>
 				<section className="container">
 					<h1 className="large">

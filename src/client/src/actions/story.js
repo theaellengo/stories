@@ -20,9 +20,9 @@ export const getStories = () => async (dispatch) => {
 	}
 };
 
-export const getStory = (id) => async (dispatch) => {
+export const getStory = (story_id) => async (dispatch) => {
 	try {
-		const res = await axios.get(`/story/${id}`);
+		const res = await axios.get(`/story/${story_id}`);
 		dispatch({ type: GET_STORY, payload: res.data });
 	} catch (err) {
 		dispatch({

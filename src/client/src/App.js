@@ -4,6 +4,7 @@ import PrivateRoute from './components/routing/PrivateRoute';
 import Index from './components/layout/Index';
 import Navbar from './components/layout/Navbar';
 import Stories from './components/stories/Stories';
+import Story from './components/story/Story';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Parts from './components/layout/Parts';
@@ -42,6 +43,7 @@ const App = () => {
 						<Route exact path="/login" element={<Login />} />
 						<Route exact path="/part" element={<Parts />} />
 						<Route exact path="/profile/:id" element={<Profile />} />
+						<Route exact path="/story/:id" element={<Story />} />
 						<Route
 							path="/add"
 							element={<PrivateRoute component={StoryForm} />}

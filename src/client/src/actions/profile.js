@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { setAlert } from './alert';
 import { CLEAR_PROFILE, GET_PROFILE, PROFILE_ERROR } from './types';
 
 export const getProfile = (id) => async (dispatch) => {

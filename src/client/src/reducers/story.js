@@ -22,22 +22,22 @@ export default function (state = initialState, action) {
 				stories: payload,
 				loading: false,
 			};
+		case GET_STORY:
+			return {
+				...state,
+				story: payload,
+				loading: false,
+			};
 		case ADD_STORY:
 			return {
 				...state,
 				stories: [...state.stories, payload],
 				loading: false,
 			};
-		case GET_STORY:
-			return {
-				...state,
-				post: payload,
-				loading: false,
-			};
 		case STORY_ERROR:
 			return {
 				...state,
-				post: null,
+				story: null,
 				loading: false,
 			};
 		case STORIES_ERROR:
