@@ -16,9 +16,13 @@ export const GET_PROFILE = 'GET_PROFILE';
 export const PROFILE_ERROR = 'PROFILE_ERROR';
 export const CLEAR_PROFILE = 'CLEAR_PROFILE';
 
-//story
+// story
 export const GET_STORIES = 'GET_STORIES';
 export const STORIES_ERROR = 'STORIES_ERROR';
 export const GET_STORY = 'GET_STORY';
 export const STORY_ERROR = 'STORY_ERROR';
 export const ADD_STORY = 'ADD_STORY';
+
+// part
+export const ADD_PART = 'ADD_PART';
+export const PART_ERROR = 'PART_ERROR';

@@ -2,10 +2,11 @@ import React, { useState, Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useParams, Navigate } from 'react-router-dom';
 import { getStory } from '../../actions/story';
+import { addPart } from '../../actions/part';
 import PropTypes from 'prop-types';
 import { setAlert } from '../../actions/alert';
 
-const Story = ({ getStory, story: { story, loading }, auth }) => {
+const Story = ({ getStory, addPart, story: { story, loading }, auth }) => {
 	const { id } = useParams();
 
 	const [formData, setFormData] = useState({ part: '' });
@@ -81,6 +82,7 @@ const Story = ({ getStory, story: { story, loading }, auth }) => {
 
 Story.propTypes = {
 	getStory: PropTypes.func.isRequired,
+	addPart: PropTypes.func.isRequired,
 	story: PropTypes.object.isRequired,
 	auth: PropTypes.object.isRequired,
 };
@@ -90,4 +92,4 @@ const mapStateToProps = (state) => ({
 	auth: state.auth,
 });
 
-export default connect(mapStateToProps, { getStory })(Story);
+export default connect(mapStateToProps, { getStory, addPart })(Story);
