@@ -7,7 +7,6 @@ import Stories from './components/stories/Stories';
 import Story from './components/story/Story';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
-import Parts from './components/layout/Parts';
 import User from './components/profile/User';
 import Profile from './components/profile/Profile';
 import Alert from './components/layout/Alert';
@@ -41,7 +40,6 @@ const App = () => {
 						<Route exact path="/stories" element={<Stories />} />
 						<Route exact path="/register" element={<Register />} />
 						<Route exact path="/login" element={<Login />} />
-						<Route exact path="/part" element={<Parts />} />
 						<Route exact path="/profile/:id" element={<Profile />} />
 						<Route exact path="/story/:id" element={<Story />} />
 						<Route
