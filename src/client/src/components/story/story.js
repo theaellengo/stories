@@ -1,17 +1,36 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { useState, Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, Navigate } from 'react-router-dom';
 import { getStory } from '../../actions/story';
 import PropTypes from 'prop-types';
+import { setAlert } from '../../actions/alert';
 
-const Story = ({ getStory, story: { story, loading } }) => {
+const Story = ({ getStory, story: { story, loading }, auth }) => {
 	const { id } = useParams();
+
+	const [formData, setFormData] = useState({ part: '' });
+	const { part } = formData;
+
+	const onChange = (e) =>
+		setFormData({ ...formData, [e.target.name]: e.target.value });
+
+	const onSubmit = async (e) => {
+		e.preventDefault();
+		console.log('submit');
+		try {
+			//addPart(auth.user.id, { title, description });
+		} catch (error) {
+			setAlert(error, 'danger');
+		}
+	};
 
 	useEffect(() => {
 		getStory(id);
 	}, [getStory]);
 
-	return (
+	return !loading && story == null ? (
+		<Navigate to="/stories"></Navigate>
+	) : (
 		!loading && (
 			<Fragment>
 				<div className="container">
@@ -32,6 +51,28 @@ const Story = ({ getStory, story: { story, loading } }) => {
 							</div>
 						))}
 					</div>
+					{auth.isAuthenticated && (
+						<div className="part-form">
+							<form className="form p-2 m-2" onSubmit={(e) => onSubmit(e)}>
+								<div className="form-group">
+									<textarea
+										value={part}
+										onChange={(e) => onChange(e)}
+										type="text"
+										placeholder="..."
+										name="part"
+										cols="30"
+										rows="5"
+									/>
+								</div>
+								<input
+									type="submit"
+									className="btn btn-primary"
+									value="AddPart"
+								/>
+							</form>
+						</div>
+					)}
 				</div>
 			</Fragment>
 		)
@@ -41,10 +82,12 @@ const Story = ({ getStory, story: { story, loading } }) => {
 Story.propTypes = {
 	getStory: PropTypes.func.isRequired,
 	story: PropTypes.object.isRequired,
+	auth: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
 	story: state.story,
+	auth: state.auth,
 });
 
 export default connect(mapStateToProps, { getStory })(Story);

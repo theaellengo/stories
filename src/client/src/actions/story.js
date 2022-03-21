@@ -29,6 +29,7 @@ export const getStory = (story_id) => async (dispatch) => {
 			type: STORY_ERROR,
 			payload: { msg: err.response.statusText, status: err.response.status },
 		});
+		dispatch(setAlert('Error retreiving story.', 'danger'));
 	}
 };
 
