@@ -1,8 +1,6 @@
 # Stories
 
-Stories is a story writing application that allows users to start stories and add to other users' stories. This project was created using the Flask python framework to develop the backend, and the React JavaScript framework for the frontend.
-
-This application uses python version 3.9
+Stories is a story writing application that allows users to start stories and add to other users' stories. This project was created using the Flask Python framework on the backend, and the React JavaScript framework on the frontend. This application uses python version 3.9.
 
 ## Dependencies
 
