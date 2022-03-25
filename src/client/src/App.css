@@ -73,12 +73,6 @@ img {
 }
 
 /* Text Styles*/
-.x-large {
-	font-size: 4rem;
-	line-height: 1.2;
-	margin-bottom: 1rem;
-}
-
 .large {
 	font-size: 3rem;
 	line-height: 1.2;
@@ -99,14 +93,6 @@ img {
 	text-align: center;
 }
 
-.text-primary {
-	color: var(--primary-color);
-}
-
-.text-dark {
-	color: var(--dark-color);
-}
-
 /* Padding */
 .p {
 	padding: 0.5rem;
@@ -117,11 +103,11 @@ img {
 .pr-1 {
 	padding-right: 1rem;
 }
-.p-2 {
-	padding: 2rem;
-}
 .p-3 {
 	padding: 3rem;
+}
+.p-2 {
+	padding: 2rem;
 }
 .pt-2 {
 	padding-top: 2rem;
@@ -183,45 +169,37 @@ img {
 	margin-top: 3rem;
 	margin-bottom: 3rem;
 }
-
-.col-10 {
-	width: 100%;
-	min-width: 200px;
-}
-
 .col-2 {
 	width: 20%;
 	min-width: 200px;
 }
-
 .col-3 {
 	width: 30%;
 	min-width: 300px;
 }
-
 .col-4 {
 	width: 40%;
 	min-width: 400px;
 }
-
 .col-5 {
 	width: 50%;
 	min-width: 500px;
 }
-
 .col-6 {
 	width: 60%;
 	min-width: 600px;
 }
-
 .col-7 {
 	width: 70%;
 	min-width: 700px;
 }
-
 .col-8 {
 	width: 80%;
 	min-width: 800px;
+}
+.col-10 {
+	width: 100%;
+	min-width: 200px;
 }
 
 .btn {
@@ -236,22 +214,11 @@ img {
 	transition: opacity 0.2s ease-in;
 	width: 100%;
 }
-
-.badge {
-	font-size: 0.8rem;
-	padding: 0.1rem;
-	text-align: center;
-	margin: 0.3rem;
-	background: var(--light-color);
-	color: #333;
-}
-
 .alert-container {
 	position: fixed;
 	z-index: 99;
 	width: 100%;
 }
-
 .alert {
 	margin: 2rem 2rem;
 	padding: 0.8rem 2rem;
@@ -264,10 +231,7 @@ img {
 	position: relative;
 }
 
-.btn-primary,
-.bg-primary,
-.badge-primary,
-.alert-primary {
+.btn-primary {
 	background: var(--primary-color);
 	color: #fff;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -275,33 +239,23 @@ img {
 	padding: 1rem;
 }
 
-.btn-light,
-.bg-light,
-.badge-light,
-.alert-light {
+.bg-light {
 	background: var(--light-color);
 	color: #333;
 }
 
-.btn-dark,
-.bg-dark,
-.badge-dark,
-.alert-dark {
+.bg-dark {
 	background: var(--dark-color);
 	color: #fff;
 }
 
 .btn-danger,
-.bg-danger,
-.badge-danger,
 .alert-danger {
 	background: var(--danger-color);
 	color: #fff;
 }
 
 .btn-success,
-.bg-success,
-.badge-success,
 .alert-success {
 	background: var(--success-color);
 	color: #fff;
@@ -309,7 +263,6 @@ img {
 
 .btn-white,
 .bg-white,
-.badge-white,
 .alert-white {
 	background: #fff;
 	color: #333;
@@ -325,36 +278,14 @@ img {
 	border: #ccc solid 1px;
 }
 
-.round-img {
-	border-radius: 50%;
-}
-
-.line {
-	height: 1px;
-	background: #ccc;
-	margin: 1.5rem 0;
-}
-
-/* Overlay */
-.dark-overlay {
-	background-color: rgba(0, 0, 0, 0.7);
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-}
-
 /* Forms */
 .form-container {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	border-radius: 36px;
 }
-
 .form .form-group {
 	margin: 1.2rem 0;
 }
-
 .form .form-text {
 	display: block;
 	margin-top: 0.3rem;
@@ -364,8 +295,6 @@ img {
 .form input[type='text'],
 .form input[type='email'],
 .form input[type='password'],
-.form input[type='date'],
-.form select,
 .form textarea {
 	display: block;
 	width: 100%;
@@ -383,41 +312,6 @@ img {
 .form input[type='submit'],
 button {
 	font: inherit;
-}
-
-.form .social-input {
-	display: flex;
-}
-
-.form .social-input i {
-	padding: 0.5rem;
-	width: 4rem;
-}
-
-.form .social-input i.fa-twitter {
-	color: #38a1f3;
-}
-.form .social-input i.fa-facebook {
-	color: #3b5998;
-}
-.form .social-input i.fa-instagram {
-	color: #3f729b;
-}
-.form .social-input i.fa-youtube {
-	color: #c4302b;
-}
-.form .social-input i.fa-linkedin {
-	color: #0077b5;
-}
-
-.table th,
-.table td {
-	padding: 1rem;
-	text-align: left;
-}
-
-.table th {
-	background: var(--light-color);
 }
 
 /* Navbar */
@@ -460,6 +354,7 @@ button {
 	text-align: center;
 	font-size: 5em;
 }
+
 .circle p {
 	margin: 0;
 	position: relative;
@@ -469,17 +364,9 @@ button {
 	margin-right: -50%;
 	transform: translate(-50%, -50%);
 }
+
 .profile-bio {
 	font-size: 1.5em;
-}
-
-.profile-choices {
-	font-size: 2em;
-	display: flex;
-}
-
-.profile-choices li {
-	padding-right: 1em;
 }
 
 /* Mobile Styles */
@@ -518,9 +405,5 @@ button {
 
 	.navbar h1 {
 		margin-bottom: 1rem;
-	}
-
-	.navbar .welcome {
-		display: none;
 	}
 }
